@@ -17,6 +17,9 @@
           "deploymentBucketName": "amplify-appreacttodo-dev-396a5-deployment",
           "s3Key": "amplify-builds/ssrHandler-4139797443305137592b-build.zip"
         }
+      },
+      "api": {
+        "ssrApi": {}
       }
     }
   }

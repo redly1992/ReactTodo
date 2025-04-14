@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "paths": {
+    "/ssr": {
+      "name": "/ssr",
+      "lambdaFunction": "ssrHandler",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}
