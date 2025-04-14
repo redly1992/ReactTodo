@@ -110,4 +110,16 @@ const serverConfig = {
     },
 };
 
-module.exports = [clientConfig, serverConfig];
+const serverCloudConfig = {
+    ...serverConfig,
+    entry: {
+        server: path.resolve(serverDir, 'server-cloud.js'),
+    },
+    output: {
+        publicPath: '/',
+        path: buildDir,
+        filename: 'server-cloud.js',
+    },
+};
+
+module.exports = [clientConfig, serverConfig, serverCloudConfig];

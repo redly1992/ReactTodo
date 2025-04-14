@@ -1,0 +1,27 @@
+{
+  "function": {
+    "ssrHandler": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_ssrHandler_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ssrHandler"
+        }
+      ]
+    },
+    "AMPLIFY_function_ssrHandler_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "ssrHandler"
+        }
+      ]
+    }
+  }
+}
