@@ -39,7 +39,7 @@ app.get('*', async (req, res) => {
     <html>
       <head>
         <title>Product App</title>
-         <link rel="shortcut icon" href="/favicon.ico" />
+         <link rel="shortcut icon" href="/public/favicon.ico" />
         <script>
           window.__INITIAL_DATA__ = ${JSON.stringify(initialData)};
         </script>
@@ -47,8 +47,8 @@ app.get('*', async (req, res) => {
       </head>
       <body>
         <div id="root">${appHtml}</div>
-        <script src="/vendor.js"></script>
-        <script src="/client.js"></script>
+        <script src="/assets/vendor.js"></script>
+        <script src="/assets/client.js"></script>
       </body>
     </html>
   `;

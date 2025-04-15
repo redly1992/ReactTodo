@@ -8,6 +8,7 @@ const rootDir = fs.realpathSync(process.cwd());
 const srcDir = path.resolve(rootDir, 'src');
 const serverDir = path.resolve(rootDir, 'server');
 const buildDir = path.resolve(rootDir, 'build');
+const assetDir = path.resolve(buildDir, 'assets');
 
 const common = {
     mode: 'development',
@@ -40,7 +41,7 @@ const clientConfig = {
     },
     output: {
         publicPath: '/',
-        path: buildDir,
+        path: assetDir,
         filename: '[name].js',
         chunkFilename: '[name].js',
     },
