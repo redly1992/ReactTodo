@@ -15,7 +15,7 @@
       "function": {
         "ssrHandler": {
           "deploymentBucketName": "amplify-appreacttodo-dev-396a5-deployment",
-          "s3Key": "amplify-builds/ssrHandler-4139797443305137592b-build.zip"
+          "s3Key": "amplify-builds/ssrHandler-30455276647338595134-build.zip"
         }
       },
       "api": {

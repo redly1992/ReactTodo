@@ -83,6 +83,7 @@ const clientConfig = {
 
 const serverConfig = {
     ...common,
+    mode: 'production',
     target: 'node',
     name: 'server',
     entry: {
@@ -93,8 +94,8 @@ const serverConfig = {
         path: buildDir,
         filename: 'server.js',
     },
-    devtool: 'eval-source-map',
-    externals: [nodeExternals()],
+    devtool: false,
+    externals: [],
     node: {
         __dirname: false,
     },
@@ -112,6 +113,7 @@ const serverConfig = {
 
 const serverCloudConfig = {
     ...serverConfig,
+    name: 'server-cloud',
     entry: {
         server: path.resolve(serverDir, 'server-cloud.js'),
     },
@@ -119,6 +121,9 @@ const serverCloudConfig = {
         publicPath: '/',
         path: buildDir,
         filename: 'server-cloud.js',
+        library: {
+            type: 'commonjs2',
+        }
     },
 };
 

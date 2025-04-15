@@ -1,1 +1,4 @@
-exports.handler = require('./server-cloud').handler;
+const bundledHandler = require('./server-cloud.js');
+
+// Export the handler from the bundled file
+exports.handler = bundledHandler.handler;

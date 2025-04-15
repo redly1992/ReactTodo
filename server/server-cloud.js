@@ -1,17 +1,12 @@
-import express from 'express';
-import React from 'react';
-import {renderToString} from 'react-dom/server';
-import path from 'path';
-import {fileURLToPath} from 'url';
-import {StaticRouter} from "react-router-dom";
-import App from "../src/App";
-const serverless = require('serverless-http');
-
-// Resolve __dirname for ES modules
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-
+const express = require('express');
 const app = express();
+const serverless = require('serverless-http');
+const React = require('react');
+const { renderToString } = require('react-dom/server');
+const path = require('path');
+const { StaticRouter } = require('react-router-dom');
+const App = require('../src/App');
+const __dirname = path.resolve();
 
 app.use(express.static(path.resolve(__dirname, '../build')));
 app.use(express.static(path.resolve(__dirname, '../public')));
@@ -30,7 +25,7 @@ app.get('*', async (req, res) => {
     // Render the app to a string
     const appHtml = renderToString(
         <StaticRouter location={req.url}>
-            <App initialData={initialData}/>
+            <App.default initialData={initialData}/>
         </StaticRouter>
     );
 
@@ -57,4 +52,13 @@ app.get('*', async (req, res) => {
     res.status(200).send(html);
 });
 
-module.exports.handler = serverless(app);
+const handler = serverless(app);
+
+const PORT = 4000;
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
+
+module.exports.handler = (event, context, callback) => {
+    return handler(event, context, callback);
+};
